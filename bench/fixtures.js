@@ -1,0 +1,47 @@
+exports.group1 = {
+	"jpeg": "image/jpeg",
+	"webp": "image/webp",
+	"x3db": "model/x3d+fastinfoset",
+	"html": "text/html",
+	"jsx": "text/jsx",
+	"md": "text/markdown",
+	"mp4": "video/mp4",
+	"mp4v": "video/mp4",
+	"mpg4": "video/mp4",
+	"webm": "video/webm",
+	"foobar": null,
+	"hello": null,
+	"hello": null,
+}
+
+exports.group2 = {
+	".jpeg": "image/jpeg",
+	".webp": "image/webp",
+	".x3db": "model/x3d+fastinfoset",
+	".html": "text/html",
+	".jsx": "text/jsx",
+	".md": "text/markdown",
+	".mp4": "video/mp4",
+	".mp4v": "video/mp4",
+	".mpg4": "video/mp4",
+	".webm": "video/webm",
+	".foobar": null,
+	".hello": null,
+	".hello": null,
+}
+
+exports.group3 = {
+	"filename.jpeg": "image/jpeg",
+	"filename.webp": "image/webp",
+	"filename.x3db": "model/x3d+fastinfoset",
+	"filename.html": "text/html",
+	"filename.jsx": "text/jsx",
+	"filename.md": "text/markdown",
+	"filename.mp4": "video/mp4",
+	"filename.mp4v": "video/mp4",
+	"filename.mpg4": "video/mp4",
+	"filename.webm": "video/webm",
+	"filename.foobar": null,
+	"filename.hello": null,
+	"filename.hello": null,
+}

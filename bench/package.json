@@ -1,0 +1,8 @@
+{
+  "private": true,
+  "devDependencies": {
+    "benchmark": "2.1.4",
+    "mime": "2.5.2",
+    "mr.mime": "file:../"
+  }
+}

@@ -27,6 +27,9 @@
 * Lightweight – 2.8kB gzip<br>
   _Only includes standard mime types; all experimental and vendor-specific mimetypes removed._
 
+* [Performant](#benchmarks)<br>
+  _All lookups are O(1) with minimal processing._
+
 * Comprehensive Dictionary<br>
   _Generated from [`mime-db`](https://github.com/jshttp/mime-db), which aggregates the IANA, NGINX, and Apache datasets._
 
@@ -79,6 +82,33 @@ The extension or filename to lookup.
 > **Important:**
 >   * Any `input` value is cast to string, lowercased, and trimmed.
 >   * If a filename or filepath is provided, only the extension will be used.
+
+
+## Benchmarks
+
+> Running on Node v16.8.0
+
+```
+Load times:
+  mr.mime    0.963ms
+  mime/lite  3.281ms
+  mime       6.751ms
+
+Benchmark :: plain ("ext")
+  mime          x 598,849 ops/sec ±0.28% (94 runs sampled)
+  mime/lite     x 536,643 ops/sec ±0.11% (97 runs sampled)
+  mr.mime       x 835,885 ops/sec ±0.20% (97 runs sampled)
+
+Benchmark :: leading (".ext")
+  mime          x 368,656 ops/sec ±0.19% (99 runs sampled)
+  mime/lite     x 368,318 ops/sec ±0.13% (97 runs sampled)
+  mr.mime       x 533,643 ops/sec ±0.10% (96 runs sampled)
+
+Benchmark :: filename ("file.ext")
+  mime          x 326,907 ops/sec ±0.17% (95 runs sampled)
+  mime/lite     x 327,479 ops/sec ±0.12% (98 runs sampled)
+  mr.mime       x 512,823 ops/sec ±0.12% (99 runs sampled)
+```
 
 
 ## Credits
