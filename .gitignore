@@ -5,5 +5,4 @@ node_modules
 *.log
 
 /dist
-/browser
-/index.d.ts
+/src/index.js

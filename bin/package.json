@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "devDependencies": {
+    "mime-db": "1.49.0"
+  }
+}
