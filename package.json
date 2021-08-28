@@ -12,12 +12,19 @@
     "email": "luke.edwards05@gmail.com",
     "url": "https://lukeed.com"
   },
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
   "files": [
-    "*.d.ts",
-    "dist"
+    "dist",
+    "index.d.ts"
   ],
   "engines": {
-    "node": ">= 10"
+    "node": ">=10"
   },
   "scripts": {
     "build": "node bin && bundt",
