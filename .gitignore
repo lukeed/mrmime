@@ -1,0 +1,9 @@
+node_modules
+.DS_Store
+*-lock.*
+*.lock
+*.log
+
+/dist
+/browser
+/index.d.ts
