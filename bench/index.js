@@ -3,9 +3,9 @@ const fixtures = require('./fixtures');
 
 console.log('Load times:');
 
-console.time('mr.mime');
-const mrmime = require('mr.mime');
-console.timeEnd('mr.mime');
+console.time('mrmime');
+const mrmime = require('mrmime');
+console.timeEnd('mrmime');
 
 console.time('mime/lite');
 const lite = require('mime/lite');
@@ -20,7 +20,7 @@ console.timeEnd('mime');
 const contenders = {
 	'mime': mime.getType,
 	'mime/lite': lite.getType,
-	'mr.mime': mrmime.lookup,
+	'mrmime': mrmime.lookup,
 };
 
 function runner(item, fixture) {

@@ -90,24 +90,24 @@ The extension or filename to lookup.
 
 ```
 Load times:
-  mrmime    0.963ms
+  mrmime     0.963ms
   mime/lite  3.281ms
   mime       6.751ms
 
 Benchmark :: plain ("ext")
   mime          x 598,849 ops/sec ±0.28% (94 runs sampled)
   mime/lite     x 536,643 ops/sec ±0.11% (97 runs sampled)
-  mrmime       x 835,885 ops/sec ±0.20% (97 runs sampled)
+  mrmime        x 835,885 ops/sec ±0.20% (97 runs sampled)
 
 Benchmark :: leading (".ext")
   mime          x 368,656 ops/sec ±0.19% (99 runs sampled)
   mime/lite     x 368,318 ops/sec ±0.13% (97 runs sampled)
-  mrmime       x 533,643 ops/sec ±0.10% (96 runs sampled)
+  mrmime        x 533,643 ops/sec ±0.10% (96 runs sampled)
 
 Benchmark :: filename ("file.ext")
   mime          x 326,907 ops/sec ±0.17% (95 runs sampled)
   mime/lite     x 327,479 ops/sec ±0.12% (98 runs sampled)
-  mrmime       x 512,823 ops/sec ±0.12% (99 runs sampled)
+  mrmime        x 512,823 ops/sec ±0.12% (99 runs sampled)
 ```
 
 
