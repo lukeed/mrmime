@@ -1,19 +1,19 @@
 <div align="center">
-  <img src="logo.png" alt="mr.mime" width="320" />
+  <img src="logo.png" alt="mrmime" width="320" />
 </div>
 
 <div align="center">
-  <a href="https://npmjs.org/package/mr.mime">
-    <img src="https://badgen.now.sh/npm/v/mr.mime" alt="version" />
+  <a href="https://npmjs.org/package/mrmime">
+    <img src="https://badgen.now.sh/npm/v/mrmime" alt="version" />
   </a>
-  <a href="https://github.com/lukeed/mr.mime/actions">
-    <img src="https://github.com/lukeed/mr.mime/workflows/CI/badge.svg" alt="CI" />
+  <a href="https://github.com/lukeed/mrmime/actions">
+    <img src="https://github.com/lukeed/mrmime/workflows/CI/badge.svg" alt="CI" />
   </a>
-  <a href="https://npmjs.org/package/mr.mime">
-    <img src="https://badgen.now.sh/npm/dm/mr.mime" alt="downloads" />
+  <a href="https://npmjs.org/package/mrmime">
+    <img src="https://badgen.now.sh/npm/dm/mrmime" alt="downloads" />
   </a>
-  <a href="https://packagephobia.now.sh/result?p=mr.mime">
-    <img src="https://packagephobia.now.sh/badge?p=mr.mime" alt="install size" />
+  <a href="https://packagephobia.now.sh/result?p=mrmime">
+    <img src="https://packagephobia.now.sh/badge?p=mrmime" alt="install size" />
   </a>
 </div>
 
@@ -43,14 +43,14 @@
 ## Install
 
 ```
-$ npm install --save mr.mime
+$ npm install --save mrmime
 ```
 
 
 ## Usage
 
 ```js
-import { lookup, mimes } from 'mr.mime';
+import { lookup, mimes } from 'mrmime';
 
 // Get a MIME type
 // ---
@@ -90,30 +90,30 @@ The extension or filename to lookup.
 
 ```
 Load times:
-  mr.mime    0.963ms
+  mrmime    0.963ms
   mime/lite  3.281ms
   mime       6.751ms
 
 Benchmark :: plain ("ext")
   mime          x 598,849 ops/sec ±0.28% (94 runs sampled)
   mime/lite     x 536,643 ops/sec ±0.11% (97 runs sampled)
-  mr.mime       x 835,885 ops/sec ±0.20% (97 runs sampled)
+  mrmime       x 835,885 ops/sec ±0.20% (97 runs sampled)
 
 Benchmark :: leading (".ext")
   mime          x 368,656 ops/sec ±0.19% (99 runs sampled)
   mime/lite     x 368,318 ops/sec ±0.13% (97 runs sampled)
-  mr.mime       x 533,643 ops/sec ±0.10% (96 runs sampled)
+  mrmime       x 533,643 ops/sec ±0.10% (96 runs sampled)
 
 Benchmark :: filename ("file.ext")
   mime          x 326,907 ops/sec ±0.17% (95 runs sampled)
   mime/lite     x 327,479 ops/sec ±0.12% (98 runs sampled)
-  mr.mime       x 512,823 ops/sec ±0.12% (99 runs sampled)
+  mrmime       x 512,823 ops/sec ±0.12% (99 runs sampled)
 ```
 
 
 ## Credits
 
-Of course, a thank-you to [`mime`](https://github.com/broofa/mime) serving the community all these years & for being a all-encompassing MIME type library. I've only ever needed lookup/`getType` functionality – and now ESM support – so `mr.mime` can only ever support 1/3 of what `mime` offers, at best.
+Of course, a thank-you to [`mime`](https://github.com/broofa/mime) serving the community all these years & for being a all-encompassing MIME type library. I've only ever needed lookup/`getType` functionality – and now ESM support – so `mrmime` can only ever support 1/3 of what `mime` offers, at best.
 
 This would not be possible without the team behind [`mime-db`](https://github.com/jshttp/mime-db), who have painstakingly maintained an amazing database for 7+ years.
 

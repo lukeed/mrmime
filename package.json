@@ -1,7 +1,7 @@
 {
-  "name": "mr.mime",
+  "name": "mrmime",
   "version": "0.0.0",
-  "repository": "lukeed/mr.mime",
+  "repository": "lukeed/mrmime",
   "description": "A tiny (2.8kB) and fast utility for getting a MIME type from an extension or filename",
   "module": "dist/index.mjs",
   "main": "dist/index.js",
