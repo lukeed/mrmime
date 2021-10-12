@@ -119,6 +119,8 @@ This would not be possible without the team behind [`mime-db`](https://github.co
 
 Artwork created by [mintinol](https://www.deviantart.com/mintinol), which I found [here](https://www.deviantart.com/mintinol/art/Mr-Mime-373927920).
 
+Finally, thanks to [Tim Branyen](https://github.com/tbranyen) for donating the package name :)
+
 
 ## License
 
