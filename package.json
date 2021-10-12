@@ -39,6 +39,6 @@
   "devDependencies": {
     "bundt": "1.1.1",
     "esm": "3.2.25",
-    "uvu": "0.5.1"
+    "uvu": "0.5.2"
   }
 }

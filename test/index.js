@@ -76,4 +76,17 @@ mimes('mutable', () => {
 	assert.is(output, 'hello');
 });
 
+// check build kept right ones
+mimes('overrides', () => {
+	assert.is(mimer.lookup('xsl'), 'application/xml');
+	assert.is(mimer.lookup('mp3'), 'audio/mpeg');
+	assert.is(mimer.lookup('wav'), 'audio/wav');
+	assert.is(mimer.lookup('x3db'), 'model/x3d+fastinfoset');
+	assert.is(mimer.lookup('x3dv'), 'model/x3d-vrml');
+	assert.is(mimer.lookup('rtf'), 'application/rtf');
+	assert.is(mimer.lookup('xml'), 'application/xml');
+	assert.is(mimer.lookup('3gpp'), 'video/3gpp');
+	assert.is(mimer.lookup('jpm'), 'image/jpm');
+});
+
 mimes.run();
