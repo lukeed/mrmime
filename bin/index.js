@@ -1,10 +1,11 @@
 // @ts-check
 const fs = require('fs');
-const { join } = require('path');
+const { join, dirname } = require('path');
 const DB = require('mime-db');
 
 const input = join(__dirname, '../src/$index.js');
 const output = join(__dirname, '../src/index.js');
+const denomod = join(__dirname, '../deno/mod.ts');
 
 // iana > mimedb > apache > nginx
 // https://github.com/jshttp/mime-types/blob/master/index.js#L156
@@ -68,3 +69,27 @@ let content = fs.readFileSync(input, 'utf8').replace(
 
 fs.writeFileSync(output, content);
 console.log('~> "src/index.js" created');
+
+let denodir = dirname(denomod);
+fs.existsSync(denodir) || fs.mkdirSync(denodir);
+
+fs.copyFileSync('readme.md', join(denodir, 'readme.md'));
+console.log('\n~> "deno/readme.md" created');
+
+fs.writeFileSync(denomod, content.replace(
+	'function lookup(extn) {',
+	'function lookup(extn: string): string | void {',
+).replace(
+	'const mimes = {',
+	'const mimes: Record<string, string> = {',
+));
+console.log('~> "deno/mod.ts" created');
+
+if (!process.env.CI) {
+	try {
+		require('child_process').spawnSync('deno', ['fmt', denomod]);
+		console.log('\n~> $ deno fmt "deno/mod.ts"');
+	} catch (err) {
+		console.log('[deno]', err.stack);
+	}
+}
