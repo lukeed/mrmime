@@ -407,7 +407,7 @@ export const mimes: Record<string, string> = {
   "webm": "video/webm",
 };
 
-export function lookup(extn: string): string | void {
+export function lookup(extn: string): string | undefined {
   let tmp = ("" + extn).trim().toLowerCase();
   let idx = tmp.lastIndexOf(".");
   return mimes[!~idx ? tmp : tmp.substring(++idx)];

@@ -78,7 +78,7 @@ console.log('\n~> "deno/readme.md" created');
 
 fs.writeFileSync(denomod, content.replace(
 	'function lookup(extn) {',
-	'function lookup(extn: string): string | void {',
+	'function lookup(extn: string): string | undefined {',
 ).replace(
 	'const mimes = {',
 	'const mimes: Record<string, string> = {',
