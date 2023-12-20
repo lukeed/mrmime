@@ -19,26 +19,33 @@ function write(file: string, data: string) {
 // iana > mimedb > apache > nginx
 // https://github.com/jshttp/mime-types/blob/master/index.js#L156
 const SOURCES = {
-	nginx: 1,
-	apache: 2,
 	iana: 4,
+	apache: 2,
+	//
+	nginx: 1,
 };
 
-function compare(prev: string, next: string): string {
-	let [p1] = prev.split('/', 1);
-	let [p2] = next.split('/', 1);
+// font > application > text
+// const TYPES = {
+// 	font: 3,
+// 	application: 2,
+// 	text: 1,
+// };
 
-	if (p1 !== p2) {
-		// font > application > text
-		if (p1 === 'font') return prev;
-		if (p2 === 'font') return next;
-		if (p1 === 'application') return prev;
-		if (p2 === 'application') return next;
-	}
-	// compare sources
+// let [p1] = prev.split('/', 1);
+// let [p2] = next.split('/', 1);
+// let t1 = TYPES[p1] || 0;
+// let t2 = TYPES[p2] || 0;
+
+function compare(prev: string, next: string): string {
 	let s1 = SOURCES[DB[prev].source] || 3;
 	let s2 = SOURCES[DB[next].source] || 3;
-	if (s1 !== s2) return s2 > s1 ? next : prev;
+
+	if (s2 !== s1) {
+		return s2 > s1 ? next : prev;
+	}
+
+	// prefer shorter
 	return prev.length >= next.length ? next : prev;
 }
 

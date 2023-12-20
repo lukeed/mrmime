@@ -83,10 +83,14 @@ mimes('overrides', () => {
 	assert.is(mimer.lookup('wav'), 'audio/wav');
 	assert.is(mimer.lookup('x3db'), 'model/x3d+fastinfoset');
 	assert.is(mimer.lookup('x3dv'), 'model/x3d-vrml');
-	assert.is(mimer.lookup('rtf'), 'application/rtf');
-	assert.is(mimer.lookup('xml'), 'application/xml');
+	assert.is(mimer.lookup('rtf'), 'text/rtf');
+	assert.is(mimer.lookup('xml'), 'text/xml');
 	assert.is(mimer.lookup('3gpp'), 'video/3gpp');
 	assert.is(mimer.lookup('jpm'), 'image/jpm');
+	//
+	assert.is(mimer.lookup('js'), 'text/javascript');
+	assert.is(mimer.lookup('mjs'), 'text/javascript');
+	assert.is(mimer.lookup('mp4'), 'video/mp4');
 });
 
 mimes.run();

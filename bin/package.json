@@ -2,6 +2,6 @@
   "private": true,
   "devDependencies": {
     "@types/node": "20.10.5",
-    "mime-db": "1.49.0"
+    "mime-db": "git://github.com/jshttp/mime-db.git#a76e5a8"
   }
 }
