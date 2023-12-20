@@ -42,6 +42,7 @@ lookup('format :: filepath', () => {
 });
 
 lookup('format :: non-string', () => {
+	// @ts-expect-error
 	let output = mimer.lookup(123);
 	assert.is(output, undefined);
 });
