@@ -1,4 +1,4 @@
-export const mimes: Record<string, string> = {
+const mimes: Record<string, string> = {
   "ez": "application/andrew-inset",
   "aw": "application/applixware",
   "atom": "application/atom+xml",
@@ -407,8 +407,10 @@ export const mimes: Record<string, string> = {
   "webm": "video/webm",
 };
 
-export function lookup(extn: string): string | undefined {
+function lookup(extn: string): string | undefined {
   let tmp = ("" + extn).trim().toLowerCase();
   let idx = tmp.lastIndexOf(".");
   return mimes[!~idx ? tmp : tmp.substring(++idx)];
 }
+
+export { lookup, mimes };

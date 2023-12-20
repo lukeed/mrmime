@@ -29,8 +29,8 @@
     "node": ">=10"
   },
   "scripts": {
-    "build": "node bin && bundt",
-    "test": "uvu -r esm test"
+    "build": "tsm bin/index.ts",
+    "test": "uvu -r tsm test"
   },
   "keywords": [
     "mime",
@@ -38,8 +38,7 @@
     "mimetype"
   ],
   "devDependencies": {
-    "bundt": "1.1.1",
-    "esm": "3.2.25",
+    "tsm": "2.3.0",
     "uvu": "0.5.2"
   }
 }
