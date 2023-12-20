@@ -42,21 +42,22 @@ function compare(prev: string, next: string): string {
 	return prev.length >= next.length ? next : prev;
 }
 
-let dict = {};
-let ignore = /[/](x-|vnd\.)/;
+// experimental/vendors
+let IGNORE = /[/](x-|vnd\.)/;
+let raw: Record<string, string> = {};
 
 let mtype: string, arr: string[];
 let i=0, extn: string, prev: string;
 
 for (mtype in DB) {
-	if (ignore.test(mtype)) continue;
+	if (IGNORE.test(mtype)) continue;
 
 	arr = DB[mtype].extensions || [];
 	if (!arr.length) continue;
 
 	for (i=0; i < arr.length; i++) {
 		extn = arr[i];
-		prev = dict[extn];
+		prev = raw[extn];
 
 		if (prev && prev !== mtype) {
 			let msg = `Found existing "${extn}" value:`;
@@ -67,12 +68,17 @@ for (mtype in DB) {
 			process.stdout.write(msg + '\n\n');
 		}
 
-		dict[extn] = mtype;
+		raw[extn] = mtype;
 	}
 }
 
+let mimes: Record<string, string> = {};
+Object.keys(raw).sort().forEach(x => {
+	mimes[x] = raw[x];
+});
+
 let content = fs.readFileSync(input, 'utf8').replace(
-	'{}', JSON.stringify(dict, null, 2)
+	'{}', JSON.stringify(mimes, null, 2)
 ) + '\n';
 
 let esm = content + 'export { mimes, lookup };\n';
