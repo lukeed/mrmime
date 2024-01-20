@@ -9,6 +9,9 @@
   <a href="https://github.com/lukeed/mrmime/actions">
     <img src="https://github.com/lukeed/mrmime/workflows/CI/badge.svg" alt="CI" />
   </a>
+  <a href="https://licenses.dev/npm/mrmime">
+    <img src="https://licenses.dev/b/npm/mrmime" alt="licenses" />
+  </a>
   <a href="https://npmjs.org/package/mrmime">
     <img src="https://badgen.now.sh/npm/dm/mrmime" alt="downloads" />
   </a>
