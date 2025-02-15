@@ -40,5 +40,10 @@
   "devDependencies": {
     "tsm": "2.3.0",
     "uvu": "0.5.2"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
   }
 }
