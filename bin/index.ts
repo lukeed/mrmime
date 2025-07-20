@@ -80,8 +80,8 @@ for (mtype in DB) {
 }
 
 let mimes: Record<string, string> = {};
-Object.keys(raw).sort().forEach(x => {
-	mimes[x] = raw[x];
+Object.entries(raw).sort((a, b) => a[1].localeCompare(b[1])).forEach(x => {
+	mimes[x[0]] = raw[x[0]];
 });
 
 let content = fs.readFileSync(input, 'utf8').replace(
