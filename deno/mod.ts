@@ -452,6 +452,10 @@ const mimes: Record<string, string> = {
   "mov": "video/quicktime",
   "webm": "video/webm"
 };
+const charsets = {
+  "application/json": "UTF-8",
+  "application/manifest+json": "UTF-8"
+};
 
 function lookup(extn: string): string | undefined {
 	let tmp = ('' + extn).trim().toLowerCase();
@@ -459,4 +463,9 @@ function lookup(extn: string): string | undefined {
 	return mimes[!~idx ? tmp : tmp.substring(++idx)];
 }
 
-export { mimes, lookup };
+function charset(mimetype: string): string | undefined {
+	if (mimetype.startsWith('text/')) return 'UTF-8';
+	return charsets[mimetype];
+}
+
+export { mimes, lookup, charset };

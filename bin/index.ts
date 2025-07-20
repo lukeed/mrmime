@@ -80,16 +80,20 @@ for (mtype in DB) {
 }
 
 let mimes: Record<string, string> = {};
+let charsets: Record<string, string> = {};
 Object.entries(raw).sort((a, b) => a[1].localeCompare(b[1])).forEach(x => {
-	mimes[x[0]] = raw[x[0]];
+	mimes[x[0]] = x[1];
+	if (!x[1].startsWith('text/') && DB[x[1]].charset) {
+		charsets[x[1]] = DB[x[1]].charset;
+	}
 });
 
-let content = fs.readFileSync(input, 'utf8').replace(
-	'{}', JSON.stringify(mimes, null, 2)
-) + '\n';
+let content = fs.readFileSync(input, 'utf8')
+	.replace('const mimes = {}', `const mimes = ${JSON.stringify(mimes, null, 2)}`)
+	.replace('const charsets = {}', `const charsets = ${JSON.stringify(charsets, null, 2)}`) + '\n';
 
-let esm = content + 'export { mimes, lookup };\n';
-let cjs = content + 'exports.mimes = mimes;\nexports.lookup = lookup;\n';
+let esm = content + 'export { mimes, lookup, charset };\n';
+let cjs = content + 'exports.mimes = mimes;\nexports.lookup = lookup;\nexports.charset = charset;\n';
 
 // build exports
 write('index.mjs', esm);
@@ -107,6 +111,9 @@ write('deno/mod.ts', esm.replace(
 ).replace(
 	'const mimes = {',
 	'const mimes: Record<string, string> = {',
+).replace(
+	'function charset(mimetype) {',
+	'function charset(mimetype: string): string | undefined {',
 ));
 
 if (!process.env.CI) {
