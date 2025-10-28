@@ -24,11 +24,12 @@
   A tiny (2.8kB) and fast utility for getting a MIME type from an extension or filename
 </div>
 
+> [!IMPORTANT]
+> Only includes standard mime types; all experimental and vendor-specific mimetypes removed.
 
 ## Features
 
-* Lightweight – 2.8kB gzip<br>
-  _Only includes standard mime types; all experimental and vendor-specific mimetypes removed._
+* Lightweight – 2.8kB gzip
 
 * [Performant](#benchmarks)<br>
   _All lookups are O(1) with minimal processing._
