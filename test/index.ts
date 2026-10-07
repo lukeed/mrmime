@@ -18,6 +18,12 @@ lookup('returns :: missing', () => {
 	assert.is(output, undefined);
 });
 
+for (let input of ['constructor', 'file.constructor', '__proto__', 'file.__proto__']) {
+	lookup(`returns :: inherited property (${input})`, () => {
+		assert.is(mimer.lookup(input), undefined);
+	});
+}
+
 lookup('format :: uppercase', () => {
 	let output = mimer.lookup('TXT');
 	assert.is(output, 'text/plain');
@@ -75,6 +81,15 @@ mimes('mutable', () => {
 	mimer.mimes['foobar'] = 'hello';
 	output = mimer.lookup('foobar');
 	assert.is(output, 'hello');
+});
+
+mimes('mutable :: inherited property name', () => {
+	try {
+		mimer.mimes['constructor'] = 'application/x-custom';
+		assert.is(mimer.lookup('file.constructor'), 'application/x-custom');
+	} finally {
+		delete mimer.mimes['constructor'];
+	}
 });
 
 // check build kept right ones

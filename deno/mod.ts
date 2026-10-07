@@ -442,7 +442,8 @@ const mimes: Record<string, string> = {
 function lookup(extn: string): string | undefined {
   let tmp = ("" + extn).trim().toLowerCase();
   let idx = tmp.lastIndexOf(".");
-  return mimes[!~idx ? tmp : tmp.substring(++idx)];
+  tmp = !~idx ? tmp : tmp.substring(++idx);
+  return Object.prototype.hasOwnProperty.call(mimes, tmp) ? mimes[tmp] : undefined;
 }
 
 export { lookup, mimes };
